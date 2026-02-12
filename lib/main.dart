@@ -49,7 +49,7 @@ class _LoginState extends State<Login> {
     final LocalAuthentication auth = LocalAuthentication();
    try{
      final bool didAuthenticate = await auth.authenticate(
-       localizedReason: 'Please authenticate to show account balance',
+       localizedReason: 'Please authenticate Biometrics',
        biometricOnly: true,
      );
 
