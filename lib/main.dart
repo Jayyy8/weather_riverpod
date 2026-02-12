@@ -157,6 +157,7 @@ class _LoginState extends State<Login> {
                         box.delete("theme_color");
                         box.delete("theme_color_name");
                         box.delete("saved_city");
+                        box.delete("biometrics");
                         Navigator.pushReplacement(context, CupertinoPageRoute(builder: (_) => const Signup()));
                       }
                   ),
