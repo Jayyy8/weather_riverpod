@@ -654,8 +654,6 @@ class _MyAppState extends State<MyApp> {
           primaryColor = color;
           themeColorName = name;
         });
-
-        // SAVE TO HIVE
         box.put("theme_color", color.value);
         box.put("theme_color_name", name);
 
