@@ -23,37 +23,25 @@ class _MainShellState extends ConsumerState<MainShell> {
 
   @override
   Widget build(BuildContext context) {
-    final appState = ref.watch(appControllerProvider);
-
-    return CupertinoApp(
-      debugShowCheckedModeBanner: false,
-      theme: CupertinoThemeData(
-        brightness:
-        appState.darkMode ? Brightness.dark : Brightness.light,
-        primaryColor: appState.primaryColor,
+    return CupertinoTabScaffold(
+      tabBar: CupertinoTabBar(
+        items: const [
+          BottomNavigationBarItem(
+            icon: Icon(CupertinoIcons.home),
+            label: "Home",
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(CupertinoIcons.settings),
+            label: "Settings",
+          ),
+        ],
       ),
-      home: CupertinoTabScaffold(
-        tabBar: CupertinoTabBar(
-          items: const [
-            BottomNavigationBarItem(
-              icon: Icon(CupertinoIcons.home),
-              label: "Home",
-            ),
-            BottomNavigationBarItem(
-              icon: Icon(CupertinoIcons.settings),
-              label: "Settings",
-            ),
-          ],
-        ),
-        tabBuilder: _tabBuilder,
-      ),
+      tabBuilder: (context, index) {
+        if (index == 0) {
+          return const HomeTab();
+        }
+        return const SettingsTab();
+      },
     );
   }
-}
-
-Widget _tabBuilder(BuildContext context, int index) {
-  if (index == 0) {
-    return const HomeTab();
-  }
-  return const SettingsTab();
 }
