@@ -23,7 +23,7 @@ class HomeTab extends ConsumerWidget {
               ),
             ),
             Text(
-              "${appState.temperature}°${appState.isMetric ? 'C' : 'F'}",
+              "${appState.temperature}°${appState.isMetric ? '' : ''}",
               style: const TextStyle(
                 fontSize: 45,
                 fontWeight: FontWeight.w200,
